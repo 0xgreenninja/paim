@@ -3,60 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAIM Integrated Services | Future-Ready Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>PAIM Integrated Services | Intelligent Environments 2026</title>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #002D5B;
-            --accent: #FF5F00;
-            --dark: #050a10;
-            --light: #ffffff;
+            --primary: #003366; /* PAIM Deep Blue */
+            --accent: #FF6600;  /* PAIM Safety Orange */
+            --bg-dark: #020617;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
-            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --text-main: #f8fafc;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: none; /* Custom cursor implementation */
         }
 
         body {
-            background-color: var(--dark);
-            color: var(--light);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* --- Animated Background Mesh --- */
-        .bg-mesh {
+        /* --- Custom Cursor --- */
+        #cursor {
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        #cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.15s ease;
+        }
+
+        /* --- Progress Bar --- */
+        #progress-container {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
+            height: 4px;
+            z-index: 2000;
+        }
+        #progress-bar {
             height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 0% 0%, #001529 0%, transparent 50%),
-                        radial-gradient(circle at 100% 100%, #0a0a0a 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, #002d5b 0%, #050a10 100%);
-            opacity: 0.8;
-        }
-
-        .bg-circle {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            animation: float 20s infinite alternate;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(100px, 50px); }
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            width: 0%;
         }
 
         /* --- Navigation --- */
@@ -70,8 +84,8 @@
         }
 
         nav.scrolled {
-            background: rgba(5, 10, 16, 0.8);
-            backdrop-filter: blur(15px);
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(20px);
             padding: 1rem 0;
             border-bottom: 1px solid var(--glass-border);
         }
@@ -90,34 +104,32 @@
 
         .logo {
             font-weight: 800;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             letter-spacing: -1px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .logo span { color: var(--accent); }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--light);
+            color: var(--text-main);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
-            opacity: 0.8;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             transition: var(--transition);
         }
 
-        .nav-links a:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
+        .nav-links a:hover { color: var(--accent); }
 
         /* --- Hero Section --- */
         .hero {
@@ -125,178 +137,87 @@
             display: flex;
             align-items: center;
             position: relative;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 51, 102, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
             overflow: hidden;
         }
 
         .hero-content {
-            max-width: 850px;
-            position: relative;
-            z-index: 2;
+            max-width: 900px;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.9;
             font-weight: 800;
-            line-height: 1;
             margin-bottom: 2rem;
+            background: linear-gradient(to bottom, #fff 40%, rgba(255,255,255,0.4));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        .typewriter {
-            color: var(--accent);
-            border-right: 3px solid var(--accent);
-            padding-right: 5px;
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink { 50% { border-color: transparent; } }
 
         .hero p {
             font-size: 1.2rem;
-            opacity: 0.7;
+            color: #94a3b8;
             margin-bottom: 3rem;
             max-width: 600px;
         }
 
-        /* --- CTA Buttons --- */
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 18px 40px;
+            padding: 20px 45px;
             border-radius: 100px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1rem;
             transition: var(--transition);
-            gap: 10px;
-            cursor: pointer;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
             background: var(--accent);
             color: white;
-            box-shadow: 0 10px 30px rgba(255, 95, 0, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 95, 0, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
         }
 
-        /* --- Section Styling --- */
+        /* --- Grid Background --- */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+        }
+
+        /* --- About Section (The Ecosystem) --- */
         .section {
-            padding: 120px 0;
+            padding: 150px 0;
         }
 
-        .section-title {
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .accent-bar {
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        /* --- Innovation Cards (Services) --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 3rem;
-            border-radius: 30px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
-        }
-
-        .glass-card:hover {
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .card-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 95, 0, 0.1);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            color: var(--accent);
-            font-size: 2rem;
-        }
-
-        .glass-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .glass-card ul {
-            list-style: none;
-            opacity: 0.7;
-        }
-
-        .glass-card li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tagline-box {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--glass-border);
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-
-        /* --- Advantage Grid --- */
-        .advantage-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .stat-card {
-            background: var(--primary);
-            padding: 2.5rem;
-            border-radius: 25px;
-            text-align: center;
-        }
-
-        .stat-card h4 {
-            font-size: 2.5rem;
-            color: var(--accent);
-        }
-
-        /* --- Reveal Animation --- */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
-            transition: all 0.8s ease-out;
+            transition: var(--transition);
         }
 
         .reveal.active {
@@ -304,279 +225,416 @@
             transform: translateY(0);
         }
 
+        .about-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .section-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        /* --- Service Units --- */
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .unit-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 4rem 3rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .unit-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        .unit-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .unit-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .unit-card ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .unit-card li {
+            margin-bottom: 12px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .unit-card li::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .unit-footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            font-weight: 600;
+            color: var(--primary);
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 0.8rem;
+        }
+
+        /* --- Strategic Advantage --- */
+        .advantage-section {
+            background: var(--primary);
+            border-radius: 60px;
+            padding: 100px 50px;
+            margin: 0 2rem;
+        }
+
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .adv-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
         /* --- Footer --- */
         footer {
-            padding: 80px 0 40px;
-            background: #020508;
             border-top: 1px solid var(--glass-border);
+            padding: 100px 0 50px;
         }
 
-        .footer-flex {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 3rem;
-            margin-bottom: 60px;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
         }
 
-        /* --- Mobile Responsiveness --- */
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Mobile Adjustments */
         @media (max-width: 992px) {
-            .advantage-wrap { grid-template-columns: 1fr; }
+            .about-flex, .adv-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
             .nav-links { display: none; }
+            .advantage-section { margin: 0; border-radius: 0; }
         }
-
     </style>
 </head>
 <body>
 
-    <div class="bg-mesh"></div>
-    <div class="bg-circle" style="width: 400px; height: 400px; background: var(--primary); top: -100px; left: -100px;"></div>
-    <div class="bg-circle" style="width: 300px; height: 300px; background: #5b0000; bottom: -50px; right: -50px; opacity: 0.3;"></div>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+    <div class="bg-grid"></div>
 
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="container nav-flex">
             <div class="logo">PAIM <span>INTEGRATED</span></div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">The Ecosystem</a></li>
-                <li><a href="#services">Business Units</a></li>
-                <li><a href="#advantage">Why PAIM</a></li>
-                <li><a href="#contact">Connect</a></li>
+                <li><a href="#home">Initiate</a></li>
+                <li><a href="#about">Ecosystem</a></li>
+                <li><a href="#units">Divisions</a></li>
+                <li><a href="#advantage">Strategy</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="btn btn-primary" style="padding: 10px 25px; font-size: 0.8rem;">START PROJECT</a>
+            <a href="#contact" class="btn btn-primary" style="padding: 12px 30px; font-size: 0.8rem;">GET IN TOUCH</a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="reveal">Next-Gen <br><span class="typewriter-container">Integrated <span class="typewriter" id="typewriter"></span></span></h1>
-                <p class="reveal">We bridge technology, infrastructure, and sustainability into a seamless ecosystem. PAIM Integrated Services is the interdisciplinary catalyst for growth in 2026 and beyond.</p>
-                <div class="reveal">
-                    <a href="#services" class="btn btn-primary">EXPLORE OUR DIVISIONS <i class="fas fa-arrow-right"></i></a>
+            <div class="hero-content reveal">
+                <span class="section-tag">Established 2026 Ready</span>
+                <h1>Intelligent <br>Infrastructure. <br>Seamless Growth.</h1>
+                <p>Delivering sustainable, integrated solutions across technology, media, construction, environmental services, and logistics.</p>
+                <div class="hero-btns">
+                    <a href="#about" class="btn btn-primary">OUR FRAMEWORK <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <div class="advantage-wrap">
+            <div class="about-flex">
                 <div class="reveal">
-                    <div class="section-title">
-                        <div class="accent-bar"></div><br>
-                        <h2>Unified <br>Intelligence.</h2>
+                    <span class="section-tag">The Conglomerate</span>
+                    <h2 class="section-title">One Partner. <br>Infinite Solutions.</h2>
+                    <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 2rem;">PAIM Integrated Services is a diversified, interdisciplinary conglomerate. We eliminate fragmentation by integrating technical expertise, creative capabilities, and operational excellence under one unified management framework.</p>
+                    <div style="display: flex; gap: 2rem;">
+                        <div>
+                            <h3 style="color: var(--accent); font-size: 2rem;">Vision</h3>
+                            <p style="font-size: 0.9rem;">Leading integrated solutions company driving innovation across Africa.</p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--accent); font-size: 2rem;">Mission</h3>
+                            <p style="font-size: 0.9rem;">Empowering organizations with smart, scalable, and sustainable solutions.</p>
+                        </div>
                     </div>
-                    <p style="font-size: 1.2rem; opacity: 0.8;">PAIM eliminates fragmentation. Operating under a unified management framework, we provide a single, reliable partner for executing complex, multi-sector projects efficiently and sustainably.</p>
-                    <br>
-                    <p style="opacity: 0.6;">Our mission is to empower organizations with smart, scalable solutions by combining engineering, creativity, and logistics.</p>
                 </div>
-                <div class="stat-grid reveal">
-                    <div class="stat-card">
-                        <h4>5+</h4>
-                        <p>Core Sectors</p>
-                    </div>
-                    <div class="stat-card" style="margin-top: 30px;">
-                        <h4>2026</h4>
-                        <p>Vision Ready</p>
-                    </div>
-                    <div class="stat-card">
-                        <h4>100%</h4>
-                        <p>Integrated</p>
-                    </div>
-                    <div class="stat-card" style="margin-top: 30px;">
-                        <h4>AI</h4>
-                        <p>Driven Focus</p>
-                    </div>
+                <div class="reveal" style="position: relative;">
+                    <!-- Imagine a high-tech abstract SVG or image here -->
+                    <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 40px; opacity: 0.2; position: absolute; top: 20px; left: 20px;"></div>
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000" style="width: 100%; border-radius: 40px; position: relative; z-index: 1;" alt="Tech Image">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="services">
+    <!-- Business Units -->
+    <section class="section" id="units">
         <div class="container">
-            <div class="section-title reveal" style="text-align: center;">
-                <h2>Interdisciplinary Units</h2>
-                <div class="accent-bar" style="margin: 0 auto;"></div>
+            <div style="text-align: center;" class="reveal">
+                <span class="section-tag">Business Units</span>
+                <h2 class="section-title">Specialized Interdisciplinary Verticals</h2>
             </div>
 
-            <div class="services-grid">
-                <!-- Tech -->
-                <div class="glass-card reveal" data-tilt>
-                    <div class="card-icon"><i class="fas fa-code-branch"></i></div>
+            <div class="units-grid">
+                <!-- PAIM Tech -->
+                <div class="unit-card reveal">
+                    <i class="fas fa-microchip"></i>
                     <h3>PAIM Tech</h3>
+                    <p>Digital Transformation & Automation</p>
                     <ul>
-                        <li><i class="fas fa-check"></i> AI-driven Business Automation</li>
-                        <li><i class="fas fa-check"></i> Enterprise Software Solutions</li>
-                        <li><i class="fas fa-check"></i> Custom Dashboards & Data</li>
+                        <li>Enterprise Software Solutions</li>
+                        <li>AI-driven Business Automation</li>
+                        <li>Digital Systems Integration</li>
+                        <li>Custom Data Dashboards</li>
                     </ul>
-                    <div class="tagline-box">Optimizing decision-making through AI-powered tools.</div>
+                    <div class="unit-footer">AI-powered tools to streamline operations.</div>
                 </div>
 
-                <!-- Media -->
-                <div class="glass-card reveal" data-tilt>
-                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                <!-- PAIM Media -->
+                <div class="unit-card reveal">
+                    <i class="fas fa-camera-retro"></i>
                     <h3>PAIM Media</h3>
+                    <p>Creative & Communication</p>
                     <ul>
-                        <li><i class="fas fa-check"></i> Brand Identity & Strategy</li>
-                        <li><i class="fas fa-check"></i> Content Creation</li>
-                        <li><i class="fas fa-check"></i> Conversion-focused Visibility</li>
+                        <li>Social Media Management</li>
+                        <li>Graphic Design & Brand Identity</li>
+                        <li>IEC Material Printing</li>
+                        <li>Content Strategy</li>
                     </ul>
-                    <div class="tagline-box">Data-driven marketing for the modern era.</div>
+                    <div class="unit-footer">Conversion-focused brand visibility.</div>
                 </div>
 
-                <!-- Construction -->
-                <div class="glass-card reveal" data-tilt>
-                    <div class="card-icon"><i class="fas fa-city"></i></div>
+                <!-- PAIM Construction -->
+                <div class="unit-card reveal">
+                    <i class="fas fa-helmet-safety"></i>
                     <h3>PAIM Construction</h3>
+                    <p>Civil Engineering & Building</p>
                     <ul>
-                        <li><i class="fas fa-check"></i> Civil Engineering Works</li>
-                        <li><i class="fas fa-check"></i> Smart Building Systems</li>
-                        <li><i class="fas fa-check"></i> Infrastructure Development</li>
+                        <li>Civil Engineering Works</li>
+                        <li>Building Renovation</li>
+                        <li>Infrastructure Development</li>
+                        <li>Project Supervision</li>
                     </ul>
-                    <div class="tagline-box">Real-time monitoring via PAIM Tech integration.</div>
+                    <div class="unit-footer">Integrated smart building monitoring.</div>
                 </div>
 
-                <!-- Environmental -->
-                <div class="glass-card reveal" data-tilt>
-                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                <!-- PAIM Environmental -->
+                <div class="unit-card reveal">
+                    <i class="fas fa-leaf"></i>
                     <h3>PAIM Environmental</h3>
+                    <p>Consulting & Compliance</p>
                     <ul>
-                        <li><i class="fas fa-check"></i> Impact Assessments (EIA)</li>
-                        <li><i class="fas fa-check"></i> Water & Air Analysis</li>
-                        <li><i class="fas fa-check"></i> Regulatory Compliance</li>
+                        <li>Impact Assessments (EIA)</li>
+                        <li>Water & Air Quality Analysis</li>
+                        <li>Environmental Monitoring</li>
+                        <li>Regulatory Advisory</li>
                     </ul>
-                    <div class="tagline-box">Ensuring future-proof, compliant projects.</div>
+                    <div class="unit-footer">Ensuring future-proof, compliant projects.</div>
                 </div>
 
-                <!-- Logistics -->
-                <div class="glass-card reveal" data-tilt>
-                    <div class="card-icon"><i class="fas fa-box-open"></i></div>
+                <!-- PAIM Logistics -->
+                <div class="unit-card reveal">
+                    <i class="fas fa-truck-fast"></i>
                     <h3>PAIM Logistics</h3>
+                    <p>Supply & Distribution</p>
                     <ul>
-                        <li><i class="fas fa-check"></i> Supply Chain Optimization</li>
-                        <li><i class="fas fa-check"></i> Procurement & Sourcing</li>
-                        <li><i class="fas fa-check"></i> Efficient Distribution</li>
+                        <li>Procurement & Sourcing</li>
+                        <li>Logistics Coordination</li>
+                        <li>Supply Chain Optimization</li>
+                        <li>Distribution Management</li>
                     </ul>
-                    <div class="tagline-box">Transparent movement of high-value resources.</div>
+                    <div class="unit-footer">Efficient movement of goods and resources.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="advantage" style="background: rgba(255,255,255,0.02);">
-        <div class="container">
-            <div class="section-title reveal">
-                <h2>The Strategic Advantage</h2>
-                <p style="opacity: 0.6;">Convergence of technology and physical infrastructure.</p>
-            </div>
-            <div class="services-grid">
-                <div class="reveal" style="padding: 20px; border-left: 2px solid var(--accent);">
-                    <h4 style="color: var(--accent); margin-bottom: 10px;">Intelligent Environments</h4>
-                    <p>We create spaces where IoT and AI monitor structural health in real-time.</p>
+    <!-- Strategic Advantage -->
+    <section class="section">
+        <div class="advantage-section reveal" id="advantage">
+            <span class="section-tag" style="color: white;">The Edge</span>
+            <h2 class="section-title">Strategic Advantage: <br>Intelligent Environments</h2>
+            <p style="opacity: 0.8; max-width: 700px;">Our competitive edge lies in the convergence of technology, infrastructure, sustainability, and communication.</p>
+            
+            <div class="adv-grid">
+                <div class="adv-item">
+                    <h4>Smart Construction</h4>
+                    <p>AI and IoT systems for real-time structural monitoring and predictive maintenance.</p>
                 </div>
-                <div class="reveal" style="padding: 20px; border-left: 2px solid var(--accent);">
-                    <h4 style="color: var(--accent); margin-bottom: 10px;">Sustainable Logistics</h4>
-                    <p>Audits that reduce carbon footprints while ensuring regulatory compliance.</p>
+                <div class="adv-item">
+                    <h4>Sustainable Logistics</h4>
+                    <p>Environmental audits to reduce carbon footprints and ensure regulatory compliance.</p>
                 </div>
-                <div class="reveal" style="padding: 20px; border-left: 2px solid var(--accent);">
-                    <h4 style="color: var(--accent); margin-bottom: 10px;">Smart Scalability</h4>
-                    <p>Client-centric solutions designed to scale with emerging market demands.</p>
+                <div class="adv-item">
+                    <h4>Automated Marketing</h4>
+                    <p>Custom AI tools enabling automated engagement and data-driven campaigns.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Footer -->
+    <footer id="contact">
         <div class="container">
-            <div class="footer-flex">
-                <div style="flex: 2;">
+            <div class="footer-grid">
+                <div class="reveal">
                     <div class="logo">PAIM <span>INTEGRATED</span></div>
-                    <p style="opacity: 0.5; max-width: 400px; margin-top: 1rem;">A strategic partner for organizations seeking intelligent, sustainable, and future-ready solutions. Leading complex projects in 2026 and beyond.</p>
+                    <p style="color: #94a3b8; margin: 2rem 0;">A strategic partner for organizations seeking intelligent, sustainable, and future-ready solutions. Positioned to lead complex projects in 2026 and beyond.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
-                <div style="flex: 1;">
-                    <h4 style="margin-bottom: 1.5rem;">Industries</h4>
-                    <ul style="list-style: none; opacity: 0.6; line-height: 2;">
+                <div class="reveal">
+                    <h4 style="margin-bottom: 2rem; font-size: 1.2rem;">Industries</h4>
+                    <ul style="list-style: none; color: #94a3b8; line-height: 2.5;">
                         <li>SMEs & Corporates</li>
                         <li>Real Estate Firms</li>
                         <li>Government Bodies</li>
                         <li>NGO Initiatives</li>
                     </ul>
                 </div>
-                <div style="flex: 1;">
-                    <h4 style="margin-bottom: 1.5rem;">Contact</h4>
-                    <p style="opacity: 0.6;">HQ: Integrated Hub</p>
-                    <p style="color: var(--accent); font-weight: 700;">info@paimintegrated.com</p>
+                <div class="reveal">
+                    <h4 style="margin-bottom: 2rem; font-size: 1.2rem;">Contact</h4>
+                    <p style="color: #94a3b8;">Headquarters</p>
+                    <p style="font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">info@paimintegrated.com</p>
+                    <a href="#home" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">INITIATE PROJECT</a>
                 </div>
             </div>
-            <div style="text-align: center; opacity: 0.3; font-size: 0.8rem; border-top: 1px solid var(--glass-border); padding-top: 30px;">
-                &copy; 2026 PAIM Integrated Services. Driven by Innovation.
+            <div style="text-align: center; margin-top: 5rem; color: #475569; font-size: 0.8rem;">
+                &copy; 2026 PAIM Integrated Services. Driven by Intelligent Integration.
             </div>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX - 10 + 'px';
+                follower.style.top = e.clientY - 10 + 'px';
+            }, 50);
+        });
+
+        // Scroll Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+
+            // Navbar background logic
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
-        });
+        };
 
-        // Typewriter Effect
-        const words = ["Technology", "Media", "Infrastructure", "Logistics", "Sustainability"];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typewriter = document.getElementById('typewriter');
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1
+        };
 
-        function type() {
-            const currentWord = words[wordIndex];
-            if (isDeleting) {
-                typewriter.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typewriter.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 150;
-            if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 500;
-            }
-            setTimeout(type, typeSpeed);
-        }
-        type();
-
-        // Reveal Animation
-        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
             });
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Subtle 3D Tilt Effect for Glass Cards
-        document.querySelectorAll('[data-tilt]').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const xc = rect.width / 2;
-                const yc = rect.height / 2;
-                const dx = x - xc;
-                const dy = y - yc;
-                card.style.transform = `perspective(1000px) rotateX(${-dy/20}deg) rotateY(${dx/20}deg) translateY(-10px)`;
+        // Magnetic Button Effect (Simple)
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
             });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) translateY(0)`;
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = `translate(0, 0)`;
             });
         });
     </script>
