@@ -3,384 +3,2251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAIM Integrated Services | Intelligent Environments</title>
-    <!-- Premium Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="PAIM Integrated Services - Building intelligent systems for a sustainable future through technology, infrastructure, and innovation.">
+    <title>PAIM Integrated Services | Integrated Solutions. Intelligent Environments.</title>
     
     <style>
-        :root {
-            --bg-dark: #020617;
-            --bg-card: #0f172a;
-            --primary: #3b82f6;
-            --primary-glow: rgba(59, 130, 246, 0.5);
-            --accent: #60a5fa;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --glass: rgba(30, 41, 59, 0.7);
-            --border: rgba(255, 255, 255, 0.1);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html { scroll-behavior: smooth; }
+        :root {
+            --color-blue-50: #eff6ff;
+            --color-blue-100: #dbeafe;
+            --color-blue-300: #93c5fd;
+            --color-blue-400: #60a5fa;
+            --color-blue-500: #3b82f6;
+            --color-blue-600: #2563eb;
+            --color-blue-700: #1d4ed8;
+            --color-blue-900: #1e3a8a;
+            --color-purple-50: #faf5ff;
+            --color-purple-100: #f3e8ff;
+            --color-purple-300: #d8b4fe;
+            --color-purple-400: #c084fc;
+            --color-purple-500: #a855f7;
+            --color-purple-600: #9333ea;
+            --color-purple-700: #7e22ce;
+            --color-purple-900: #581c87;
+            --color-orange-400: #fb923c;
+            --color-orange-500: #f97316;
+            --color-orange-600: #ea580c;
+            --color-orange-700: #c2410c;
+            --color-green-500: #22c55e;
+            --color-green-600: #16a34a;
+            --color-green-700: #15803d;
+            --color-red-500: #ef4444;
+            --color-red-700: #b91c1c;
+            --color-yellow-400: #facc15;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-400: #9ca3af;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+        }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--color-gray-900);
             overflow-x: hidden;
-            line-height: 1.5;
         }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
-
-        /* --- Reusable Utility --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* --- Navigation --- */
-        nav {
+        /* Header Styles */
+        header {
             position: fixed;
             top: 0;
-            width: 100%;
-            padding: 1.5rem 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            transition: all 0.4s;
-            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
         }
 
-        nav.scrolled {
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(12px);
-            padding: 1rem 0;
-            border-color: var(--border);
+        header.scrolled {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-content {
+        nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            height: 80px;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            background: linear-gradient(to right, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .logo img {
+            height: 120px;
+            width: auto;
         }
 
-        .nav-links { display: flex; gap: 3rem; list-style: none; }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--color-gray-700);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
         }
-        .nav-links a:hover { color: var(--text-main); }
 
-        /* --- Hero Section --- */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--color-blue-400), var(--color-purple-400));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-blue-600);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--color-gray-700);
+        }
+
+        /* Hero Section */
         .hero {
+            position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;
+            justify-content: center;
             overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
+            background: linear-gradient(100deg, rgba(17, 24, 39, 0.95) 0%, rgba(30, 58, 138, 0.85) 50%, rgba(88, 28, 135, 0.9) 100%);
         }
 
-        /* Ambient Glows */
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
-            width: 400px; height: 400px;
-            background: var(--primary);
-            filter: blur(150px);
-            opacity: 0.15;
-            top: 10%; left: 10%;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1646153114001-495dfb56506d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjBidWlsZGluZyUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzY4ODY2Nzk4fDA&ixlib=rb-4.1.0&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
         }
 
-        .hero-content { position: relative; z-index: 10; max-width: 800px; }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(100deg, rgba(17, 24, 39, 0.95) 0%, rgba(30, 58, 138, 0.85) 50%, rgba(88, 28, 135, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(37, 99, 235, 0.2), rgba(147, 51, 234, 0.2));
+            animation: pulse 3s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .hero-orb-1 {
+            position: absolute;
+            top: 80px;
+            left: 40px;
+            width: 288px;
+            height: 288px;
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: pulse 3s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .hero-orb-2 {
+            position: absolute;
+            bottom: 80px;
+            right: 40px;
+            width: 384px;
+            height: 384px;
+            background: rgba(249, 115, 22, 0.2);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: pulse 3s ease-in-out infinite 1s;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1280px;
+            padding: 0 1rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .hero-badge svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-yellow-400);
+        }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 800;
-            line-height: 1;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
             margin-bottom: 1.5rem;
-            letter-spacing: -3px;
+            line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(to right, var(--color-blue-400), var(--color-purple-400), var(--color-orange-400));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--color-gray-200);
+            margin-bottom: 3rem;
+            max-width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
+            padding: 0.875rem 2rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
+            border-radius: 0.5rem;
             cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: linear-gradient(to right, var(--color-blue-600), var(--color-purple-600));
             color: white;
-            box-shadow: 0 0 20px var(--primary-glow);
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px var(--primary-glow);
+            transform: scale(1.05);
+            box-shadow: 0 20px 30px -5px rgba(37, 99, 235, 0.5);
         }
 
-        /* --- Subsidiaries Bento Grid --- */
-        .section-label { color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1rem; display: block; }
-        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
 
-        .bento-grid {
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator-inner {
+            width: 24px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+            backdrop-filter: blur(4px);
+        }
+
+        .scroll-indicator-dot {
+            width: 4px;
+            height: 8px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            color: var(--color-blue-600);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--color-blue-50);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 96px;
+            height: 6px;
+            background: linear-gradient(to right, var(--color-blue-600), var(--color-purple-600));
+            margin: 0 auto 2rem;
+            border-radius: 9999px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--color-gray-700);
+            max-width: 768px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* About Section */
+        #about {
+            background: linear-gradient(to bottom, white, var(--color-gray-50));
+        }
+
+        .about-decorative-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 384px;
+            height: 384px;
+            background: var(--color-blue-100);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .about-decorative-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 384px;
+            height: 384px;
+            background: var(--color-purple-100);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .vision-mission-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 300px);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .vm-card {
+            position: relative;
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .vm-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 1rem;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--color-blue-500), var(--color-blue-700));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.5);
+        }
+
+        .vm-card.mission::before {
+            background: linear-gradient(135deg, var(--color-orange-500), var(--color-orange-600));
+        }
+
+        .vm-card.mission:hover {
+            box-shadow: 0 20px 40px -10px rgba(249, 115, 22, 0.5);
+        }
+
+        .vm-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .vm-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--color-blue-600), var(--color-blue-700));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .vm-card:hover .vm-icon {
+            transform: scale(1.1);
+        }
+
+        .vm-icon.mission {
+            background: linear-gradient(135deg, var(--color-orange-500), var(--color-orange-600));
+        }
+
+        .vm-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .vm-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+        }
+
+        .vm-description {
+            color: var(--color-gray-700);
+            font-size: 1.125rem;
+            line-height: 1.75;
+        }
+
+        /* Subsidiaries Section */
+        #subsidiaries {
+            background: linear-gradient(to bottom, var(--color-gray-50), white);
+        }
+
+        .subsidiaries-decorative-1 {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 288px;
+            height: 288px;
+            background: var(--color-purple-200);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+        }
+
+        .subsidiaries-decorative-2 {
+            position: absolute;
+            bottom: 40px;
+            right: 0;
+            width: 384px;
+            height: 384px;
+            background: var(--color-blue-200);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+        }
+
+        .subsidiaries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+
+        .subsidiary-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--color-gray-100);
+        }
+
+        .subsidiary-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+        }
+
+        .subsidiary-image {
+            position: relative;
+            height: 224px;
+            overflow: hidden;
+        }
+
+        .subsidiary-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .subsidiary-card:hover .subsidiary-image img {
+            transform: scale(1.1);
+        }
+
+        .subsidiary-overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .subsidiary-card:hover .subsidiary-overlay {
+            opacity: 0.75;
+        }
+
+        .subsidiary-overlay.tech {
+            background: linear-gradient(135deg, var(--color-blue-500), var(--color-blue-700));
+        }
+
+        .subsidiary-overlay.media {
+            background: linear-gradient(135deg, var(--color-purple-500), var(--color-purple-700));
+        }
+
+        .subsidiary-overlay.construction {
+            background: linear-gradient(135deg, var(--color-orange-500), var(--color-orange-700));
+        }
+
+        .subsidiary-overlay.environmental {
+            background: linear-gradient(135deg, var(--color-green-500), var(--color-green-700));
+        }
+
+        .subsidiary-overlay.supply {
+            background: linear-gradient(135deg, var(--color-red-500), var(--color-red-700));
+        }
+
+        .subsidiary-icon-wrapper {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .subsidiary-card:hover .subsidiary-icon-wrapper {
+            transform: scale(1.1);
+        }
+
+        .subsidiary-icon-wrapper svg {
+            width: 72px;
+            height: 72px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        .subsidiary-corner-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 96px;
+            height: 96px;
+            background: rgba(255, 255, 255, 0.2);
+            border-bottom-left-radius: 100%;
+        }
+
+        .subsidiary-content {
+            padding: 2rem;
+        }
+
+        .subsidiary-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .subsidiary-tagline {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--color-gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .subsidiary-services {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .subsidiary-services li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .subsidiary-services li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(to right, var(--color-blue-600), var(--color-purple-600));
+            border-radius: 50%;
+            margin-top: 8px;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .subsidiary-services li:hover::before {
+            transform: scale(1.5);
+        }
+
+        .subsidiary-services li span {
+            color: var(--color-gray-700);
+        }
+
+        .subsidiary-focus {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .subsidiary-focus p {
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--color-gray-600);
+            background: var(--color-gray-50);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        /* Strategic Advantage Section */
+        #advantage {
+            background: linear-gradient(
+  135deg,
+  #0f172a 0%,   /* deep slate */
+  #1e3a8a 45%,  /* royal blue */
+  #6d28d9 100%  /* vibrant purple */
+);
+color: white;
+
+        }
+
+        .advantage-decorative-1 {
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 384px;
+            height: 384px;
+            background: var(--color-blue-500);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .advantage-decorative-2 {
+            position: absolute;
+            bottom: 0;
+            right: 25%;
+            width: 384px;
+            height: 384px;
+            background: var(--color-purple-500);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+            animation: pulse 3s ease-in-out infinite 1s;
+        }
+
+        .advantage-badge {
+            color: var(--color-blue-300);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .advantage-title {
+            color: white;
+        }
+
+        .advantage-subtitle {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--color-blue-300), var(--color-purple-300));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .advantage-description {
+            color: var(--color-gray-300);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .advantage-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .advantage-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .advantage-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--color-blue-500), var(--color-purple-500));
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .advantage-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .advantage-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .advantage-card:hover .advantage-card-icon {
+            transform: scale(1.1);
+        }
+
+        .advantage-card-icon.blue {
+            background: var(--color-blue-100);
+            color: var(--color-blue-600);
+        }
+
+        .advantage-card-icon.green {
+            background: var(--color-green-100);
+            color: var(--color-green-600);
+        }
+
+        .advantage-card-icon.purple {
+            background: var(--color-purple-100);
+            color: var(--color-purple-600);
+        }
+
+        .advantage-card-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .advantage-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .advantage-card-description {
+            color: var(--color-gray-300);
+            line-height: 1.75;
+        }
+
+        .core-strengths {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            max-width: 1024px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .core-strengths-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, var(--color-blue-300), var(--color-purple-300));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .core-strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
         }
 
-        .bento-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
+        .core-strength-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .core-strength-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(to right, var(--color-blue-400), var(--color-purple-400));
+            border-radius: 50%;
+            margin-top: 6px;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .core-strength-item:hover::before {
+            transform: scale(1.5);
+        }
+
+        .core-strength-item span {
+            color: var(--color-gray-200);
+            font-size: 1.125rem;
+            line-height: 1.75;
+        }
+
+        /* Industries Section */
+        #industries {
+            background: linear-gradient(to bottom, white, var(--color-gray-50));
+        }
+
+        .industries-decorative-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 384px;
+            height: 384px;
+            background: var(--color-orange-100);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .industries-decorative-2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 288px;
+            height: 288px;
+            background: var(--color-blue-100);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .industry-card {
+            background: white;
             padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--color-gray-100);
+            transition: all 0.3s ease;
+            cursor: pointer;
             position: relative;
-            overflow: hidden;
-            transition: 0.4s;
+        }
+
+        .industry-card:hover {
+            background: linear-gradient(135deg, var(--color-blue-50), var(--color-purple-50));
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+        }
+
+        .industry-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--color-blue-600), var(--color-purple-600));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .industry-card:hover .industry-icon {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        .industry-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .industry-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .industry-description {
+            color: var(--color-gray-600);
+            line-height: 1.75;
+        }
+
+        .industry-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(to right, var(--color-blue-600), var(--color-purple-600));
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .industry-card:hover .industry-indicator {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(to bottom, var(--color-gray-50), white);
+        }
+
+        .contact-decorative-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 384px;
+            height: 384px;
+            background: var(--color-blue-100);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .contact-decorative-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 288px;
+            height: 288px;
+            background: var(--color-purple-100);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 2rem;
+        }
+
+        .contact-items {
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .bento-item:hover {
-            border-color: var(--primary);
-            background: #111a2e;
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--color-gray-100);
+            transition: all 0.3s ease;
         }
 
-        .bento-item h3 { font-size: 1.5rem; margin-bottom: 0.5rem; z-index: 2; }
-        .bento-item p { font-size: 0.9rem; color: var(--text-muted); z-index: 2; }
-        
-        .item-large { grid-column: span 2; }
-        
-        /* Decorative Icon Backgrounds */
-        .bento-icon {
-            position: absolute;
-            top: 2rem; right: 2rem;
-            font-size: 4rem;
-            opacity: 0.1;
-            transition: 0.4s;
-        }
-        .bento-item:hover .bento-icon { opacity: 0.3; transform: scale(1.1) rotate(-10deg); }
-
-        /* --- Stats Section --- */
-        .stats { background: #070c1b; padding: 6rem 0; margin: 4rem 0; border-y: 1px solid var(--border); }
-        .stats-grid { display: flex; justify-content: space-between; text-align: center; }
-        .stat-card h2 { font-size: 3.5rem; color: var(--primary); }
-        .stat-card p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); }
-
-        /* --- Contact Form --- */
-        .contact-box {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            padding: 4rem;
-            border-radius: 32px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+        .contact-item:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+            border-color: var(--color-blue-200);
         }
 
-        .input-group { margin-bottom: 1.5rem; }
-        .input-group label { display: block; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--text-muted); }
-        .input-group input, .input-group textarea {
+        .contact-item-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--color-blue-600), var(--color-purple-600));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover .contact-item-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-item-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .contact-item-content h4 {
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item-content p {
+            color: var(--color-gray-600);
+            margin-bottom: 0.25rem;
+        }
+
+        .business-hours {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--color-blue-50), var(--color-purple-50));
+            border-radius: 1rem;
+            border: 1px solid var(--color-blue-100);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .business-hours h4 {
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .business-hours p {
+            color: var(--color-gray-700);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .business-hours-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--color-green-500);
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .contact-form-wrapper {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--color-gray-100);
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            background: rgba(0,0,0,0.2);
-            border: 1px solid var(--border);
-            padding: 1rem;
-            border-radius: 12px;
-            color: white;
-            outline: none;
-            transition: 0.3s;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--color-gray-300);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
         }
-        .input-group input:focus { border-color: var(--primary); }
 
-        /* --- Footer --- */
-        footer { padding: 4rem 0; border-top: 1px solid var(--border); margin-top: 6rem; color: var(--text-muted); }
-        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-blue-500);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
 
-        @media (max-width: 968px) {
-            .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-            .item-large { grid-column: span 1; }
-            .contact-box { grid-template-columns: 1fr; padding: 2rem; }
-            .nav-links { display: none; }
-            .stats-grid { flex-direction: column; gap: 3rem; }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(to right, var(--color-blue-600), var(--color-purple-600));
+            color: white;
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-submit svg {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 50%, var(--color-gray-900) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--color-blue-600), var(--color-purple-600), var(--color-orange-600));
+        }
+
+        .footer-content {
+            padding: 4rem 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-company {
+            grid-column: span 2;
+        }
+
+        .footer-logo img {
+            height: 120px;
+            width: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-description {
+            color: var(--color-gray-400);
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(to right, var(--color-blue-600), var(--color-purple-600));
+            transform: scale(1.1);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .footer-section h4 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--color-gray-400);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-blue-400);
+        }
+
+        .footer-links a::before {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: var(--color-blue-400);
+            margin-right: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover::before {
+            width: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        .subsidiaries-list {
+            list-style: none;
+        }
+
+        .subsidiaries-list li {
+            color: var(--color-gray-400);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .subsidiaries-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .subsidiaries-list li:nth-child(1)::before {
+            background: var(--color-blue-500);
+        }
+
+        .subsidiaries-list li:nth-child(2)::before {
+            background: var(--color-purple-500);
+        }
+
+        .subsidiaries-list li:nth-child(3)::before {
+            background: var(--color-orange-500);
+        }
+
+        .subsidiaries-list li:nth-child(4)::before {
+            background: var(--color-green-500);
+        }
+
+        .subsidiaries-list li:nth-child(5)::before {
+            background: var(--color-red-500);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-gray-800);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copyright {
+            color: var(--color-gray-400);
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a {
+            color: var(--color-gray-400);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--color-blue-400);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            50% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .subsidiaries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-company {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                right: 0;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vision-mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .core-strengths-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Utility Classes */
+        .relative {
+            position: relative;
+        }
+
+        .z-10 {
+            z-index: 10;
         }
     </style>
 </head>
 <body>
-
-    <nav id="navbar">
-        <div class="container nav-content">
-            <div class="logo">PAIM.</div>
-            <ul class="nav-links">
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="PAIM.png">
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#impact">Impact</a></li>
+                <li><a href="#subsidiaries">Services</a></li>
+                <li><a href="#advantage">Advantage</a></li>
+                <li><a href="#industries">Industries</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <svg class="menu-icon" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg class="close-icon" viewBox="0 0 24 24" style="display: none;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </nav>
+    </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-content">
-            <h1 class="reveal">Intelligent <br><span style="color: var(--primary)">Environments.</span></h1>
-            <p class="reveal">Building Africa’s future through integrated high-tech infrastructure, civil engineering, and digital media ecosystems.</p>
-            <div class="reveal">
-                <a href="#services" class="btn btn-primary">Discover Solutions</a>
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-gradient"></div>
+        <div class="hero-orb-1"></div>
+        <div class="hero-orb-2"></div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"></path>
+                </svg>
+                <span>Africa's Leading Integrated Solutions Provider</span>
             </div>
-        </div>
-    </section>
-
-    <section id="services" style="padding: 100px 0;">
-        <div class="container">
-            <span class="section-label">Integrated Subsidiaries</span>
-            <h2 class="section-title">One Partner. Infinite Scale.</h2>
             
-            <div class="bento-grid">
-                <div class="bento-item item-large reveal">
-                    <div class="bento-icon">⚡</div>
-                    <h3>PAIM Tech</h3>
-                    <p>Propelling digital transformation via AI-driven business automation and enterprise systems integration.</p>
+            <h1>PAIM Integrated Services</h1>
+            <p class="hero-subtitle">Integrated Solutions. Intelligent Environments.</p>
+            <p class="hero-description">
+                Building intelligent systems for a sustainable future through technology, infrastructure, and innovation.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#subsidiaries" class="btn btn-primary">
+                    Explore Our Services
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-indicator-inner">
+                <div class="scroll-indicator-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-decorative-1"></div>
+        <div class="about-decorative-2"></div>
+        
+        <div class="container relative z-10">
+            <div class="section-header">
+                <div class="section-badge">About PAIM</div>
+                <h2 class="section-title">Who We Are</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    PAIM Integrated Services is a diversified interdisciplinary conglomerate providing end-to-end solutions 
+                    across technology, media, construction, environmental services, and logistics. Operating under a unified 
+                    management framework, PAIM enables clients to execute complex, multi-sector projects efficiently, 
+                    sustainably, and at scale.
+                </p>
+                <p class="section-description" style="margin-top: 1rem;">
+                    Our one-stop-shop structure eliminates fragmentation, reduces operational risk, and ensures seamless 
+                    project delivery from concept to completion.
+                </p>
+            </div>
+
+            <div class="vision-mission-grid">
+                <!-- Vision -->
+                <div class="vm-card">
+                    <div class="vm-header">
+                        <div class="vm-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="vm-title">Vision</h3>
+                    </div>
+                    <p class="vm-description">
+                        To become Africa's leading integrated solutions company driving innovation, sustainability, 
+                        and intelligent infrastructure.
+                    </p>
                 </div>
-                <div class="bento-item reveal">
-                    <div class="bento-icon">🏗️</div>
-                    <h3>Construction</h3>
-                    <p>Smart civil engineering and sustainable urban infrastructure development.</p>
-                </div>
-                <div class="bento-item reveal">
-                    <div class="bento-icon">🎥</div>
-                    <h3>PAIM Media</h3>
-                    <p>Data-backed content strategy and high-fidelity production for modern brands.</p>
-                </div>
-                <div class="bento-item item-large reveal">
-                    <div class="bento-icon">🌱</div>
-                    <h3>Environmental</h3>
-                    <p>Sustainable consulting, EIA assessments, and green compliance for large-scale industrial projects.</p>
+
+                <!-- Mission -->
+                <div class="vm-card mission">
+                    <div class="vm-header">
+                        <div class="vm-icon mission">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="vm-title">Mission</h3>
+                    </div>
+                    <p class="vm-description">
+                        To deliver smart, scalable, and future-ready solutions by integrating technology, engineering, 
+                        creativity, environmental responsibility, and logistics.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="stats">
-        <div class="container stats-grid">
-            <div class="stat-card reveal">
-                <h2>120+</h2>
-                <p>Projects Delivered</p>
+    <!-- Subsidiaries Section -->
+    <section id="subsidiaries">
+        <div class="subsidiaries-decorative-1"></div>
+        <div class="subsidiaries-decorative-2"></div>
+        
+        <div class="container relative z-10">
+            <div class="section-header">
+                <div class="section-badge">Our Network</div>
+                <h2 class="section-title">Our Subsidiaries</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    PAIM operates through specialized subsidiaries, each led by domain experts and coordinated under 
+                    a central strategic management system.
+                </p>
             </div>
-            <div class="stat-card reveal">
-                <h2>98%</h2>
-                <p>Operational Efficiency</p>
-            </div>
-            <div class="stat-card reveal">
-                <h2>5</h2>
-                <p>Key Industries</p>
+
+            <div class="subsidiaries-grid">
+                <!-- PAIM Tech -->
+                <div class="subsidiary-card">
+                    <div class="subsidiary-image">
+                        <img src="https://images.unsplash.com/photo-1768224656445-33d078c250b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80" alt="PAIM Tech">
+                        <div class="subsidiary-overlay tech"></div>
+                        <div class="subsidiary-icon-wrapper">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path>
+                            </svg>
+                        </div>
+                        <div class="subsidiary-corner-accent"></div>
+                    </div>
+                    <div class="subsidiary-content">
+                        <h3 class="subsidiary-name">PAIM Tech</h3>
+                        <p class="subsidiary-tagline">Digital Transformation & Automation</p>
+                        <ul class="subsidiary-services">
+                            <li><span>Web and mobile application development</span></li>
+                            <li><span>Enterprise software solutions</span></li>
+                            <li><span>AI-driven business automation</span></li>
+                            <li><span>Systems integration and dashboards</span></li>
+                        </ul>
+                        <div class="subsidiary-focus">
+                            <p>Focus 2026: AI-powered efficiency and intelligent automation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAIM Media -->
+                <div class="subsidiary-card">
+                    <div class="subsidiary-image">
+                        <img src="https://images.unsplash.com/photo-1603201667230-bd139210db18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80" alt="PAIM Media">
+                        <div class="subsidiary-overlay media"></div>
+                        <div class="subsidiary-icon-wrapper">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46"></path>
+                            </svg>
+                        </div>
+                        <div class="subsidiary-corner-accent"></div>
+                    </div>
+                    <div class="subsidiary-content">
+                        <h3 class="subsidiary-name">PAIM Media</h3>
+                        <p class="subsidiary-tagline">Marketing, Creative & Communication</p>
+                        <ul class="subsidiary-services">
+                            <li><span>Social media management</span></li>
+                            <li><span>Graphic design & branding</span></li>
+                            <li><span>IEC and high-quality print production</span></li>
+                            <li><span>Content strategy and campaign execution</span></li>
+                        </ul>
+                        <div class="subsidiary-focus">
+                            <p>Outcome: Data-driven visibility and measurable growth.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAIM Construction -->
+                <div class="subsidiary-card">
+                    <div class="subsidiary-image">
+                        <img src="https://images.unsplash.com/photo-1767884161909-1abc7d766341?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80" alt="PAIM Construction">
+                        <div class="subsidiary-overlay construction"></div>
+                        <div class="subsidiary-icon-wrapper">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"></path>
+                            </svg>
+                        </div>
+                        <div class="subsidiary-corner-accent"></div>
+                    </div>
+                    <div class="subsidiary-content">
+                        <h3 class="subsidiary-name">PAIM Construction</h3>
+                        <p class="subsidiary-tagline">Civil Engineering & Smart Building Solutions</p>
+                        <ul class="subsidiary-services">
+                            <li><span>Civil works and infrastructure</span></li>
+                            <li><span>Building construction and renovation</span></li>
+                            <li><span>Project supervision and management</span></li>
+                        </ul>
+                        <div class="subsidiary-focus">
+                            <p>Advantage: Integration of smart monitoring systems via PAIM Tech.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAIM Environmental Services -->
+                <div class="subsidiary-card">
+                    <div class="subsidiary-image">
+                        <img src="https://images.unsplash.com/photo-1528122819723-9dca3a31295d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80" alt="PAIM Environmental Services">
+                        <div class="subsidiary-overlay environmental"></div>
+                        <div class="subsidiary-icon-wrapper">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.893 13.393l-1.135-1.135a2.252 2.252 0 01-.421-.585l-1.08-2.16a.414.414 0 00-.663-.107.827.827 0 01-.812.21l-1.273-.363a.89.89 0 00-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.212.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 01-1.81 1.025 1.055 1.055 0 01-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.655-.261a2.25 2.25 0 01-1.383-2.46l.007-.042a2.25 2.25 0 01.29-.787l.09-.15a2.25 2.25 0 012.37-1.048l1.178.236a1.125 1.125 0 001.302-.795l.208-.73a1.125 1.125 0 00-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 01-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 01-1.458-1.137l1.411-2.353a2.25 2.25 0 00.286-.76m11.928 9.869A9 9 0 008.965 3.525m11.928 9.868A9 9 0 118.965 3.525"></path>
+                            </svg>
+                        </div>
+                        <div class="subsidiary-corner-accent"></div>
+                    </div>
+                    <div class="subsidiary-content">
+                        <h3 class="subsidiary-name">PAIM Environmental Services</h3>
+                        <p class="subsidiary-tagline">Environmental Consulting & Compliance</p>
+                        <ul class="subsidiary-services">
+                            <li><span>Environmental Impact Assessments (EIA)</span></li>
+                            <li><span>Water and air quality analysis</span></li>
+                            <li><span>Environmental monitoring and reporting</span></li>
+                            <li><span>Regulatory compliance advisory</span></li>
+                        </ul>
+                        <div class="subsidiary-focus">
+                            <p>Commitment: Sustainable and compliant project execution.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAIM Supply & Distribution -->
+                <div class="subsidiary-card">
+                    <div class="subsidiary-image">
+                        <img src="https://images.unsplash.com/photo-1768796372478-f3c46af523a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80" alt="PAIM Supply & Distribution">
+                        <div class="subsidiary-overlay supply"></div>
+                        <div class="subsidiary-icon-wrapper">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"></path>
+                            </svg>
+                        </div>
+                        <div class="subsidiary-corner-accent"></div>
+                    </div>
+                    <div class="subsidiary-content">
+                        <h3 class="subsidiary-name">PAIM Supply & Distribution</h3>
+                        <p class="subsidiary-tagline">Logistics & Procurement</p>
+                        <ul class="subsidiary-services">
+                            <li><span>Procurement and sourcing</span></li>
+                            <li><span>Logistics coordination</span></li>
+                            <li><span>Supply chain optimization</span></li>
+                            <li><span>Distribution management</span></li>
+                        </ul>
+                        <div class="subsidiary-focus">
+                            <p>Strength: Reliable and cost-efficient resource movement.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Strategic Advantage Section -->
+    <section id="advantage">
+        <div class="advantage-decorative-1"></div>
+        <div class="advantage-decorative-2"></div>
+        
+        <div class="container relative z-10">
+            <div class="section-header">
+                <div class="section-badge advantage-badge">Why Choose PAIM</div>
+                <h2 class="section-title advantage-title">Strategic Advantage</h2>
+                <div class="section-divider"></div>
+                <h3 class="advantage-subtitle">Intelligent Environments</h3>
+                <p class="section-description advantage-description">
+                    PAIM creates intelligent environments where technology, infrastructure, sustainability, 
+                    and communication work together seamlessly.
+                </p>
+            </div>
+
+            <div class="advantages-grid">
+                <!-- Smart Construction -->
+                <div class="advantage-card">
+                    <div class="advantage-card-icon blue">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"></path>
+                        </svg>
+                    </div>
+                    <h4 class="advantage-card-title">Smart Construction</h4>
+                    <p class="advantage-card-description">AI & IoT-enabled monitoring and predictive maintenance</p>
+                </div>
+
+                <!-- Sustainable Logistics -->
+                <div class="advantage-card">
+                    <div class="advantage-card-icon green">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path>
+                        </svg>
+                    </div>
+                    <h4 class="advantage-card-title">Sustainable Logistics</h4>
+                    <p class="advantage-card-description">Carbon footprint audits and efficiency optimization</p>
+                </div>
+
+                <!-- Automated Marketing -->
+                <div class="advantage-card">
+                    <div class="advantage-card-icon purple">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="advantage-card-title">Automated Marketing</h4>
+                    <p class="advantage-card-description">AI-driven content systems and engagement automation</p>
+                </div>
+            </div>
+
+            <div class="core-strengths">
+                <h4 class="core-strengths-title">Core Strengths</h4>
+                <div class="core-strengths-grid">
+                    <div class="core-strength-item">
+                        <span>One partner for multi-sector execution</span>
+                    </div>
+                    <div class="core-strength-item">
+                        <span>Reduced coordination and delivery risks</span>
+                    </div>
+                    <div class="core-strength-item">
+                        <span>Interdisciplinary expertise under unified leadership</span>
+                    </div>
+                    <div class="core-strength-item">
+                        <span>Innovation-first and sustainability-driven approach</span>
+                    </div>
+                    <div class="core-strength-item">
+                        <span>Scalable solutions tailored to client needs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries">
+        <div class="industries-decorative-1"></div>
+        <div class="industries-decorative-2"></div>
+        
+        <div class="container relative z-10">
+            <div class="section-header">
+                <div class="section-badge">Our Reach</div>
+                <h2 class="section-title">Industries We Serve</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    From startups to government institutions, we deliver tailored solutions across diverse sectors
+                </p>
+            </div>
+
+            <div class="industries-grid">
+                <!-- SMEs and Startups -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"></path>
+                        </svg>
+                    </div>
+                    <h3 class="industry-title">SMEs and Startups</h3>
+                    <p class="industry-description">Helping emerging businesses scale with integrated solutions</p>
+                    <div class="industry-indicator"></div>
+                </div>
+
+                <!-- Corporate Organizations -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="industry-title">Corporate Organizations</h3>
+                    <p class="industry-description">Enterprise-level solutions for complex operational needs</p>
+                    <div class="industry-indicator"></div>
+                </div>
+
+                <!-- Real Estate & Infrastructure -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+                        </svg>
+                    </div>
+                    <h3 class="industry-title">Real Estate & Infrastructure</h3>
+                    <p class="industry-description">Smart building and development project support</p>
+                    <div class="industry-indicator"></div>
+                </div>
+
+                <!-- Government & Public Sector -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="industry-title">Government & Public Sector</h3>
+                    <p class="industry-description">Compliance-driven solutions for public institutions</p>
+                    <div class="industry-indicator"></div>
+                </div>
+
+                <!-- NGOs & Development Agencies -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="industry-title">NGOs & Development Agencies</h3>
+                    <p class="industry-description">Sustainable and impact-focused project delivery</p>
+                    <div class="industry-indicator"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact">
-        <div class="container">
-            <div class="contact-box reveal">
-                <div>
-                    <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Ready to <br>start?</h2>
-                    <p style="color: var(--text-muted);">Reach out for a consultation regarding integrated multi-sector project execution.</p>
+        <div class="contact-decorative-1"></div>
+        <div class="contact-decorative-2"></div>
+        
+        <div class="container relative z-10">
+            <div class="section-header">
+                <div class="section-badge">Let's Connect</div>
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Ready to transform your business with integrated solutions? Contact us today.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Email</h4>
+                                <p>info@paimservices.com</p>
+                                <p>contact@paimservices.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Phone</h4>
+                                <p>+123 456 7890</p>
+                                <p>+123 456 7891</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Location</h4>
+                                <p>PAIM Headquarters</p>
+                                <p>Innovation District, Business Bay</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="business-hours">
+                        <h4>Business Hours</h4>
+                        <p>
+                            <span class="business-hours-indicator"></span>
+                            Monday - Friday: 8:00 AM - 6:00 PM
+                        </p>
+                        <p>
+                            <span class="business-hours-indicator"></span>
+                            Saturday: 9:00 AM - 2:00 PM
+                        </p>
+                    </div>
                 </div>
-                <form id="contactForm">
-                    <div class="input-group">
-                        <label>FULL NAME</label>
-                        <input type="text" required>
-                    </div>
-                    <div class="input-group">
-                        <label>EMAIL ADDRESS</label>
-                        <input type="email" required>
-                    </div>
-                    <div class="input-group">
-                        <label>HOW CAN WE HELP?</label>
-                        <textarea rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Initialize Discussion</button>
-                </form>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@company.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company / Organization</label>
+                            <input type="text" id="company" name="company" placeholder="Your Company Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            Send Message
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="container">
+    <!-- Footer -->
+    <footer>
+        <div class="footer-gradient"></div>
         <div class="footer-content">
-            <div class="logo">PAIM.</div>
-            <p>&copy; 2026 PAIM Integrated Services. Interdisciplinary Excellence.</p>
-            <div style="display: flex; gap: 2rem;">
-                <a href="#" style="color: var(--text-muted); text-decoration: none;">LinkedIn</a>
-                <a href="#" style="color: var(--text-muted); text-decoration: none;">Twitter</a>
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Company Info -->
+                    <div class="footer-company">
+                        <div class="footer-logo">
+                            <img src="PAIM2.png">
+                        </div>
+                        <p class="footer-description">
+                            Building intelligent systems for a sustainable future through integrated solutions 
+                            across technology, construction, media, environmental services, and logistics.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3A6.5 6.5 0 0123 9.5v5A6.5 6.5 0 0116.5 21h-9A6.5 6.5 0 011 14.5v-5A6.5 6.5 0 017.5 3h9z"></path>
+                                    <circle cx="12" cy="12" r="4"></circle>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.5 6.51l.01-.011"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#subsidiaries">Our Services</a></li>
+                            <li><a href="#industries">Industries</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Subsidiaries -->
+                    <div class="footer-section">
+                        <h4>Our Subsidiaries</h4>
+                        <ul class="subsidiaries-list">
+                            <li>PAIM Tech</li>
+                            <li>PAIM Media</li>
+                            <li>PAIM Construction</li>
+                            <li>PAIM Environmental</li>
+                            <li>PAIM Supply & Distribution</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bottom Bar -->
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        c 2026 PAIM Integrated Services. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // --- Navigation Scroll Effect ---
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const menuIcon = document.querySelector('.menu-icon');
+        const closeIcon = document.querySelector('.close-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                menuIcon.style.display = 'none';
+                closeIcon.style.display = 'block';
             } else {
-                nav.classList.remove('scrolled');
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
             }
         });
 
-        // --- Intersection Observer for Reveal Animations ---
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your interest! We will get back to you shortly.');
+            contactForm.reset();
+        });
+
+        // Intersection Observer for animations
         const observerOptions = {
-            threshold: 0.15
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // --- Form Handling ---
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Transmission Received. A sector lead will contact you within 24 hours.');
-            e.target.reset();
+        // Observe all cards and sections
+        document.querySelectorAll('.subsidiary-card, .industry-card, .advantage-card, .vm-card, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
