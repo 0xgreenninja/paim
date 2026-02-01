@@ -3,28 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PAIM Integrated Services - Building intelligent systems for a sustainable future through technology, infrastructure, and innovation.">
-    <title>PAIM Integrated Services | Integrated Solutions. Intelligent Environments.</title>
+    <title>PAIM Integrated Services | Intelligent Environments</title>
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- CORE DESIGN VARIABLES --- */
         :root {
-            --color-blue-50: #eff6ff;
-            --color-blue-600: #2563eb;
-            --color-blue-700: #1d4ed8;
-            --color-blue-900: #1e3a8a;
-            --color-purple-500: #a855f7;
-            --color-purple-600: #9333ea;
-            --color-orange-500: #f97316;
-            --color-green-500: #22c55e;
-            --color-red-500: #ef4444;
-            --color-gray-50: #f9fafb;
-            --color-gray-100: #f3f4f6;
-            --color-gray-200: #e5e7eb;
-            --color-gray-700: #374151;
-            --color-gray-800: #1f2937;
-            --color-gray-900: #111827;
-            --transition-smooth: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            --bg-dark: #020617;
+            --bg-card: #0f172a;
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --accent: #60a5fa;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass: rgba(30, 41, 59, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -33,604 +28,345 @@
             box-sizing: border-box;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--color-gray-900);
-            background-color: #fff;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            line-height: 1.5;
         }
 
-        /* --- ANIMATION BASE CLASSES --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition-smooth);
-        }
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* --- Reusable Utility --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-
-        /* --- HEADER & NAV --- */
-        header {
+        /* --- Navigation --- */
+        nav {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s;
             border-bottom: 1px solid transparent;
         }
 
-        header.scrolled {
-            height: 70px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            background: rgba(255, 255, 255, 0.98);
+        nav.scrolled {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
+            border-color: var(--border);
         }
 
-        nav {
-            max-width: 1280px;
-            margin: 0 auto;
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%;
-            padding: 0 2rem;
         }
 
-        .logo { font-weight: 800; font-size: 1.5rem; color: var(--color-blue-900); }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
+        .nav-links { display: flex; gap: 3rem; list-style: none; }
         .nav-links a {
+            color: var(--text-muted);
             text-decoration: none;
-            color: var(--color-gray-700);
-            font-weight: 600;
-            transition: color 0.3s ease;
-            position: relative;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+        .nav-links a:hover { color: var(--text-main); }
 
-        .nav-links a:hover { color: var(--color-blue-600); }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--color-blue-600);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after { width: 100%; }
-
-        .mobile-menu-btn { display: none; cursor: pointer; }
-
-        /* --- HERO SECTION --- */
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             position: relative;
-            background: var(--color-gray-900);
-            color: white;
             overflow: hidden;
-            text-align: center;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
         }
 
-        .hero-bg {
+        /* Ambient Glows */
+        .hero::before {
+            content: '';
             position: absolute;
-            inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3;
-            z-index: 1;
+            width: 400px; height: 400px;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.15;
+            top: 10%; left: 10%;
         }
 
-        .hero-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 2;
-            opacity: 0.4;
-            transition: transform 0.2s ease-out;
-        }
-
-        .orb-1 { width: 400px; height: 400px; background: var(--color-blue-600); top: -100px; left: -100px; }
-        .orb-2 { width: 500px; height: 500px; background: var(--color-purple-600); bottom: -150px; right: -100px; }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 900px;
-            padding: 0 2rem;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1.25rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 99px;
-            margin-bottom: 2rem;
-            font-size: 0.875rem;
-            letter-spacing: 1px;
-            animation: fadeInDown 1s ease;
-        }
+        .hero-content { position: relative; z-index: 10; max-width: 800px; }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            line-height: 1.1;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease;
+            letter-spacing: -3px;
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            color: var(--color-gray-200);
+            font-size: 1.25rem;
+            color: var(--text-muted);
             margin-bottom: 2.5rem;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            animation: fadeInUp 1s ease 0.4s both;
+            max-width: 600px;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
             text-decoration: none;
-            transition: var(--transition-smooth);
+            font-weight: 600;
+            transition: all 0.3s;
             display: inline-block;
+            cursor: pointer;
         }
 
         .btn-primary {
-            background: var(--color-blue-600);
+            background: var(--primary);
             color: white;
-            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 0 20px var(--primary-glow);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            background: var(--color-blue-700);
-            box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--primary-glow);
         }
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(5px);
-        }
+        /* --- Subsidiaries Bento Grid --- */
+        .section-label { color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1rem; display: block; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; }
 
-        .btn-secondary:hover { background: rgba(255, 255, 255, 0.2); }
-
-        /* --- SECTIONS --- */
-        section { padding: 100px 2rem; max-width: 1280px; margin: 0 auto; }
-
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-tag { color: var(--color-blue-600); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.875rem; margin-bottom: 1rem; display: block; }
-        .section-title { font-size: 2.5rem; margin-bottom: 1rem; color: var(--color-gray-900); }
-        .section-divider { width: 60px; height: 4px; background: var(--color-blue-600); margin: 0 auto 1.5rem; border-radius: 2px; }
-
-        /* --- SUBSIDIARY CARDS --- */
-        .subsidiaries-grid {
+        .bento-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 1.5rem;
         }
 
-        .sub-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--color-gray-100);
-            transition: var(--transition-smooth);
-            position: relative;
-        }
-
-        .sub-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.1);
-        }
-
-        .sub-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .sub-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -150%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transform: skewX(-25deg);
-            transition: 0.75s;
-            z-index: 5;
-        }
-
-        .sub-card:hover::before { left: 150%; }
-
-        .sub-icon {
-            width: 60px; height: 60px;
-            background: var(--color-blue-600);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: -30px 0 1.5rem 1.5rem;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .sub-icon svg { width: 30px; height: 30px; fill: white; }
-
-        .sub-content { padding: 0 1.5rem 2rem 1.5rem; }
-        .sub-content h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
-        .sub-content p { color: var(--color-gray-700); font-size: 0.95rem; margin-bottom: 1.5rem; }
-
-        .sub-list { list-style: none; }
-        .sub-list li {
-            font-size: 0.875rem;
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.5rem;
-            color: var(--color-gray-700);
-        }
-
-        .sub-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--color-blue-600);
-        }
-
-        /* --- ADVANTAGE SECTION --- */
-        #advantage { background-color: var(--color-gray-50); border-radius: 40px; margin: 50px auto; }
-
-        .advantage-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .adv-item {
-            text-align: center;
+        .bento-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
             padding: 2rem;
-            background: white;
-            border-radius: 20px;
-            transition: var(--transition-smooth);
-        }
-
-        .adv-item:hover { background: var(--color-blue-600); color: white; }
-        .adv-item:hover p { color: rgba(255, 255, 255, 0.8); }
-
-        .adv-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-
-        /* --- CONTACT FORM --- */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            background: white;
-            padding: 3rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-info h3 { font-size: 2rem; margin-bottom: 1.5rem; }
-        .contact-method { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-        .method-icon { width: 40px; height: 40px; background: var(--color-blue-50); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-blue-600); }
-
-        form { display: grid; gap: 1rem; }
-        input, textarea {
-            padding: 1rem;
-            border: 1px solid var(--color-gray-200);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        input:focus, textarea:focus { outline: none; border-color: var(--color-blue-600); }
-        .submit-btn {
-            background: var(--color-blue-600);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-        }
-        .submit-btn:hover { background: var(--color-blue-700); transform: scale(1.02); }
-
-        /* --- FOOTER --- */
-        footer {
-            background: var(--color-gray-900);
-            color: white;
-            padding: 80px 2rem 40px;
-        }
-
-        .footer-grid {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-logo { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; display: block; }
-        .footer-col h4 { margin-bottom: 1.5rem; font-size: 1.1rem; }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 0.75rem; }
-        .footer-links a { color: var(--color-gray-200); text-decoration: none; transition: 0.3s; }
-        .footer-links a:hover { color: white; padding-left: 5px; }
-
-        .footer-bottom {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
             display: flex;
-            justify-content: space-between;
-            font-size: 0.875rem;
-            color: var(--color-gray-200);
+            flex-direction: column;
+            justify-content: flex-end;
         }
 
-        /* --- KEYFRAMES --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .bento-item:hover {
+            border-color: var(--primary);
+            background: #111a2e;
         }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1024px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .contact-container { grid-template-columns: 1fr; }
+        .bento-item h3 { font-size: 1.5rem; margin-bottom: 0.5rem; z-index: 2; }
+        .bento-item p { font-size: 0.9rem; color: var(--text-muted); z-index: 2; }
+        
+        .item-large { grid-column: span 2; }
+        
+        /* Decorative Icon Backgrounds */
+        .bento-icon {
+            position: absolute;
+            top: 2rem; right: 2rem;
+            font-size: 4rem;
+            opacity: 0.1;
+            transition: 0.4s;
+        }
+        .bento-item:hover .bento-icon { opacity: 0.3; transform: scale(1.1) rotate(-10deg); }
+
+        /* --- Stats Section --- */
+        .stats { background: #070c1b; padding: 6rem 0; margin: 4rem 0; border-y: 1px solid var(--border); }
+        .stats-grid { display: flex; justify-content: space-between; text-align: center; }
+        .stat-card h2 { font-size: 3.5rem; color: var(--primary); }
+        .stat-card p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); }
+
+        /* --- Contact Form --- */
+        .contact-box {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            padding: 4rem;
+            border-radius: 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
         }
 
-        @media (max-width: 768px) {
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--text-muted); }
+        .input-group input, .input-group textarea {
+            width: 100%;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 12px;
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+        .input-group input:focus { border-color: var(--primary); }
+
+        /* --- Footer --- */
+        footer { padding: 4rem 0; border-top: 1px solid var(--border); margin-top: 6rem; color: var(--text-muted); }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+
+        @media (max-width: 968px) {
+            .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .item-large { grid-column: span 1; }
+            .contact-box { grid-template-columns: 1fr; padding: 2rem; }
             .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .hero h1 { font-size: 3rem; }
-            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .stats-grid { flex-direction: column; gap: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <header id="header">
-        <nav>
-            <div class="logo">PAIM</div>
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="logo">PAIM.</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#subsidiaries">Services</a></li>
-                <li><a href="#advantage">Advantage</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#impact">Impact</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu-btn">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="hero-orb orb-1"></div>
-        <div class="hero-orb orb-2"></div>
-        <div class="hero-content">
-            <span class="hero-badge">AFRICA'S LEADING INTEGRATED SOLUTIONS</span>
-            <h1>Integrated Solutions. <br><span style="color:var(--color-blue-600)">Intelligent Environments.</span></h1>
-            <p>Building smart, scalable, and sustainable infrastructure for the next generation of global business.</p>
-            <div class="hero-btns">
-                <a href="#subsidiaries" class="btn btn-primary">Our Expertise</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="reveal">Intelligent <br><span style="color: var(--primary)">Environments.</span></h1>
+            <p class="reveal">Building Africa’s future through integrated high-tech infrastructure, civil engineering, and digital media ecosystems.</p>
+            <div class="reveal">
+                <a href="#services" class="btn btn-primary">Discover Solutions</a>
             </div>
         </div>
     </section>
 
-    <section id="about">
-        <div class="section-header reveal">
-            <span class="section-tag">About Us</span>
-            <h2 class="section-title">End-to-End Excellence</h2>
-            <div class="section-divider"></div>
-            <p style="max-width: 700px; margin: 0 auto; color: var(--color-gray-700);">
-                PAIM Integrated Services is a diversified interdisciplinary conglomerate. We eliminate fragmentation, reducing operational risk and ensuring seamless project delivery through technology, construction, and logistics.
-            </p>
-        </div>
-    </section>
-
-    <section id="subsidiaries">
-        <div class="section-header reveal">
-            <span class="section-tag">Our Network</span>
-            <h2 class="section-title">Specialized Subsidiaries</h2>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="subsidiaries-grid">
-            <!-- PAIM TECH -->
-            <div class="sub-card reveal reveal-delay-1">
-                <div class="sub-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')"></div>
-                <div class="sub-icon">
-                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 11.5l-4-4 1.4-1.4 2.6 2.6 5.6-5.6L19 8.5l-7 7z"/></svg>
-                </div>
-                <div class="sub-content">
+    <section id="services" style="padding: 100px 0;">
+        <div class="container">
+            <span class="section-label">Integrated Subsidiaries</span>
+            <h2 class="section-title">One Partner. Infinite Scale.</h2>
+            
+            <div class="bento-grid">
+                <div class="bento-item item-large reveal">
+                    <div class="bento-icon">⚡</div>
                     <h3>PAIM Tech</h3>
-                    <p>Digital Transformation & Automation</p>
-                    <ul class="sub-list">
-                        <li>AI-Driven Business Automation</li>
-                        <li>Enterprise Software Solutions</li>
-                        <li>Systems Integration</li>
-                    </ul>
+                    <p>Propelling digital transformation via AI-driven business automation and enterprise systems integration.</p>
                 </div>
-            </div>
-
-            <!-- PAIM CONSTRUCTION -->
-            <div class="sub-card reveal reveal-delay-2">
-                <div class="sub-image" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop')"></div>
-                <div class="sub-icon" style="background: var(--color-orange-500);">
-                    <svg viewBox="0 0 24 24"><path d="M3 21h18v-2H3v2zm10-16.12s1.66-2.03 2-2.38v5.5H11v-5.5c.34.35 2 2.38 2 2.38zM5 21V10h3v11H5zm11 0V10h3v11h-3z"/></svg>
+                <div class="bento-item reveal">
+                    <div class="bento-icon">🏗️</div>
+                    <h3>Construction</h3>
+                    <p>Smart civil engineering and sustainable urban infrastructure development.</p>
                 </div>
-                <div class="sub-content">
-                    <h3>PAIM Construction</h3>
-                    <p>Smart Civil Engineering</p>
-                    <ul class="sub-list">
-                        <li>Civil Works & Infrastructure</li>
-                        <li>Smart Building Solutions</li>
-                        <li>Project Supervision</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- PAIM MEDIA -->
-            <div class="sub-card reveal reveal-delay-3">
-                <div class="sub-image" style="background-image: url('https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=2062&auto=format&fit=crop')"></div>
-                <div class="sub-icon" style="background: var(--color-purple-500);">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h-2v-2h2v2zm0-4h-2V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
-                </div>
-                <div class="sub-content">
+                <div class="bento-item reveal">
+                    <div class="bento-icon">🎥</div>
                     <h3>PAIM Media</h3>
-                    <p>Creative & Strategy</p>
-                    <ul class="sub-list">
-                        <li>Social Media Management</li>
-                        <li>Branding & Content Strategy</li>
-                        <li>High-Quality Production</li>
-                    </ul>
+                    <p>Data-backed content strategy and high-fidelity production for modern brands.</p>
+                </div>
+                <div class="bento-item item-large reveal">
+                    <div class="bento-icon">🌱</div>
+                    <h3>Environmental</h3>
+                    <p>Sustainable consulting, EIA assessments, and green compliance for large-scale industrial projects.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="advantage">
-        <div class="section-header reveal">
-            <span class="section-tag">Why PAIM</span>
-            <h2 class="section-title">The Strategic Advantage</h2>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="advantage-grid">
-            <div class="adv-item reveal reveal-delay-1">
-                <span class="adv-icon">🛡️</span>
-                <h4>Reduced Risk</h4>
-                <p>Unified management removes the complexity of multi-vendor projects.</p>
+    <div class="stats">
+        <div class="container stats-grid">
+            <div class="stat-card reveal">
+                <h2>120+</h2>
+                <p>Projects Delivered</p>
             </div>
-            <div class="adv-item reveal reveal-delay-2">
-                <span class="adv-icon">⚙️</span>
-                <h4>AI-Powered</h4>
-                <p>Integration of PAIM Tech across all sectors for maximum efficiency.</p>
+            <div class="stat-card reveal">
+                <h2>98%</h2>
+                <p>Operational Efficiency</p>
             </div>
-            <div class="adv-item reveal reveal-delay-3">
-                <span class="adv-icon">🌍</span>
-                <h4>Sustainable</h4>
-                <p>Environmental responsibility baked into every project lifecycle.</p>
+            <div class="stat-card reveal">
+                <h2>5</h2>
+                <p>Key Industries</p>
             </div>
         </div>
-    </section>
+    </div>
 
     <section id="contact">
-        <div class="contact-container reveal">
-            <div class="contact-info">
-                <span class="section-tag">Connect</span>
-                <h3>Let's build the future together.</h3>
-                <div class="contact-method">
-                    <div class="method-icon">✉️</div>
-                    <div>
-                        <strong>Email Us</strong>
-                        <p>info@paimservices.com</p>
-                    </div>
+        <div class="container">
+            <div class="contact-box reveal">
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Ready to <br>start?</h2>
+                    <p style="color: var(--text-muted);">Reach out for a consultation regarding integrated multi-sector project execution.</p>
                 </div>
-                <div class="contact-method">
-                    <div class="method-icon">📍</div>
-                    <div>
-                        <strong>Location</strong>
-                        <p>Innovation Hub, Lagos, Nigeria</p>
+                <form id="contactForm">
+                    <div class="input-group">
+                        <label>FULL NAME</label>
+                        <input type="text" required>
                     </div>
-                </div>
+                    <div class="input-group">
+                        <label>EMAIL ADDRESS</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label>HOW CAN WE HELP?</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Initialize Discussion</button>
+                </form>
             </div>
-
-            <form id="contactForm">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <textarea rows="5" placeholder="Tell us about your project..." required></textarea>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <span class="footer-logo">PAIM</span>
-                <p>Building intelligent systems for a sustainable future through technology, infrastructure, and innovation.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Sitemap</h4>
-                <ul class="footer-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#subsidiaries">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Subsidiaries</h4>
-                <ul class="footer-links">
-                    <li><a href="#">PAIM Tech</a></li>
-                    <li><a href="#">PAIM Construction</a></li>
-                    <li><a href="#">PAIM Media</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Newsletter</h4>
-                <p>Stay updated with our latest innovations.</p>
-                <div style="display:flex; gap:0.5rem; margin-top:1rem;">
-                    <input type="email" placeholder="Email" style="padding:0.5rem; width:100%;">
-                    <button class="btn-primary" style="padding:0.5rem 1rem; border:none; border-radius:4px;">Join</button>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 PAIM Integrated Services. All Rights Reserved.</p>
-            <div style="display:flex; gap:1.5rem;">
-                <a href="#" style="color:var(--color-gray-200); text-decoration:none;">Privacy</a>
-                <a href="#" style="color:var(--color-gray-200); text-decoration:none;">Terms</a>
+    <footer class="container">
+        <div class="footer-content">
+            <div class="logo">PAIM.</div>
+            <p>&copy; 2026 PAIM Integrated Services. Interdisciplinary Excellence.</p>
+            <div style="display: flex; gap: 2rem;">
+                <a href="#" style="color: var(--text-muted); text-decoration: none;">LinkedIn</a>
+                <a href="#" style="color: var(--text-muted); text-decoration: none;">Twitter</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // --- SCROLL REVEAL ENGINE ---
-        const revealElements = document.querySelectorAll('.reveal');
-        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        // --- Navigation Scroll Effect ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
-        const revealObserver = new IntersectionObserver((entries) => {
+        // --- Intersection Observer for Reveal Animations ---
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
@@ -638,49 +374,12 @@
             });
         }, observerOptions);
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // --- HERO PARALLAX EFFECT ---
-        const hero = document.querySelector('.hero');
-        const orb1 = document.querySelector('.orb-1');
-        const orb2 = document.querySelector('.orb-2');
-
-        hero.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 40;
-            const y = (e.clientY / window.innerHeight - 0.5) * 40;
-            
-            orb1.style.transform = `translate(${x}px, ${y}px)`;
-            orb2.style.transform = `translate(${-x}px, ${-y}px)`;
-        });
-
-        // --- STICKY HEADER ---
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // --- SMOOTH SCROLL ---
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // --- FORM SUBMISSION ---
+        // --- Form Handling ---
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for your message! Our team will contact you shortly.');
+            alert('Transmission Received. A sector lead will contact you within 24 hours.');
             e.target.reset();
         });
     </script>
